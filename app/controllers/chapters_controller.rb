@@ -3,12 +3,8 @@ class ChaptersController < ApplicationController
   # GET /chapters.json
   def index
     @chapters = Chapter.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @chapters }
+    
     end
-  end
 
   # GET /chapters/1
   # GET /chapters/1.json

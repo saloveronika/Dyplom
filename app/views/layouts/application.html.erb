@@ -13,18 +13,18 @@
       </div>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-        <%= link_to "The main page", root_path  %>
+      <%= link_to "The main page", root_path  %>
       <%= link_to "Edit page", chapters_path %>
       <ul class="hmenu">
-      <div class="sidebar"><div class="content-wrapper">
+        <div class="sidebar"><div class="content-wrapper">
 
-          <%= content_for?(:sidebar) ? yield(:sidebar) : "Hello" %>
+            <%= content_for?(:sidebar) ? yield(:sidebar) : "Hello" %>
 
-          <br/>
+            <br/>
 
-        </div> </div>
-      <div class="content"><div class="content-wrapper"><%= yield %></div>
-      </div>
+          </div> </div>
+        <div class="content"><div class="content-wrapper"><%= yield %></div>
+        </div>
     </div>
     <div class="footer", style="color: yellow">&copy;  2011</div>
   </body>
