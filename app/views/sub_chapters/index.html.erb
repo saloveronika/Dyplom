@@ -1,0 +1,29 @@
+<h1>Listing sub_chapters</h1>
+
+<table>
+  <tr>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Data</th>
+    <th>Chapter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sub_chapters.each do |sub_chapter| %>
+  <tr>
+    <td><%= sub_chapter.index %></td>
+    <td><%= sub_chapter.name %></td>
+    <td><%= sub_chapter.data %></td>
+    <td><%= sub_chapter.chapter_id %></td>
+    <td><%= link_to 'Show', sub_chapter %></td>
+    <td><%= link_to 'Edit', edit_sub_chapter_path(sub_chapter) %></td>
+    <td><%= link_to 'Destroy', sub_chapter, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sub chapter', new_sub_chapter_path %>

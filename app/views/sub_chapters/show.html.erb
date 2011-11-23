@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Index:</b>
+  <%= @sub_chapter.index %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @sub_chapter.name %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @sub_chapter.data %>
+</p>
+
+<p>
+  <b>Chapter:</b>
+  <%= @sub_chapter.chapter_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sub_chapter_path(@sub_chapter) %> |
+<%= link_to 'Back', sub_chapters_path %>

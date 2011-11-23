@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dyplom</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="site">
+      <div class="header">
+        <%= image_tag('3.png', :width => 960, :height => 200) %>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+        <%= link_to "The main page", root_path  %>
+      <%= link_to "Edit page", chapters_path %>
+      <ul class="hmenu">
+      <div class="sidebar"><div class="content-wrapper">
+
+          <%= content_for?(:sidebar) ? yield(:sidebar) : "Hello" %>
+
+          <br/>
+
+        </div> </div>
+      <div class="content"><div class="content-wrapper"><%= yield %></div>
+      </div>
+    </div>
+    <div class="footer", style="color: yellow">&copy;  2011</div>
+  </body>
+</html>
