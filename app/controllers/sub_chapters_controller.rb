@@ -1,4 +1,6 @@
 class SubChaptersController < ApplicationController
+  before_filter :get_chapter
+  before_filter :get_chapters
   # GET /sub_chapters
   # GET /sub_chapters.json
   def index
@@ -40,32 +42,24 @@ class SubChaptersController < ApplicationController
   # POST /sub_chapters
   # POST /sub_chapters.json
   def create
-    @sub_chapter = SubChapter.new(params[:sub_chapter])
+    @sub_chapter = @chapter.sub_chapters.new(params[:sub_chapter])
 
-    respond_to do |format|
-      if @sub_chapter.save
-        format.html { redirect_to @sub_chapter, notice: 'Sub chapter was successfully created.' }
-        format.json { render json: @sub_chapter, status: :created, location: @sub_chapter }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @sub_chapter.errors, status: :unprocessable_entity }
-      end
+    if @sub_chapter.save
+      redirect_to chapter_path(@chapter), notice: 'Sub chapter was successfully created.' 
+    else
+      render action: "new" 
     end
   end
 
   # PUT /sub_chapters/1
   # PUT /sub_chapters/1.json
   def update
-    @sub_chapter = SubChapter.find(params[:id])
+    @sub_chapter = @chapter.sub_chapters.find(params[:id])
 
-    respond_to do |format|
-      if @sub_chapter.update_attributes(params[:sub_chapter])
-        format.html { redirect_to @sub_chapter, notice: 'Sub chapter was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @sub_chapter.errors, status: :unprocessable_entity }
-      end
+    if @sub_chapter.update_attributes(params[:sub_chapter])
+      redirect_to chapter_path(@chapter), notice: 'Sub chapter was successfully created.' 
+    else
+      render action: "edit" 
     end
   end
 
@@ -76,8 +70,17 @@ class SubChaptersController < ApplicationController
     @sub_chapter.destroy
 
     respond_to do |format|
-      format.html { redirect_to sub_chapters_url }
+      format.html { redirect_to chpter_sub_chapters_url(@chapter) }
       format.json { head :ok }
     end
+  end
+  
+  private
+  def get_chapter
+    @chapter = Chapter.find(params[:chapter_id])
+  end
+  
+  def get_chapters
+    @chapters = Chapter.all
   end
 end

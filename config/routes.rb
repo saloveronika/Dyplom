@@ -3,6 +3,8 @@ Dyplom::Application.routes.draw do
   resources :chapters do
     resources :sub_chapters
   end
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

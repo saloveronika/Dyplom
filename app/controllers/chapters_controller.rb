@@ -1,8 +1,9 @@
 class ChaptersController < ApplicationController
+  before_filter :get_chapters
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
+    
     
     end
 
@@ -10,7 +11,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1.json
   def show
     @chapter = Chapter.find(params[:id])
-
+   # @sub_chapter = @chapter.sub_chapters.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @chapter }
@@ -75,5 +76,10 @@ class ChaptersController < ApplicationController
       format.html { redirect_to chapters_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  def get_chapters
+    @chapters = Chapter.all
   end
 end

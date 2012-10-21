@@ -1,0 +1,18 @@
+<%= content_for :sidebar do %>
+  <% @chapters.each do |chapter| %> 
+    <ul class="chapters"> 
+      <li class="<%= params[:chapter_id] == chapter.id.to_s ? "selected" : "" %>"> 
+        <%= link_to chapter.name, chapter_path(chapter) %> |
+        <%= link_to 'Delete', chapter, confirm: 'Are you sure?', :method => :delete %>
+      </li>
+
+      <% chapter.sub_chapters.each do |subc| %>
+        <ul>
+          <li> <%= link_to subc.name, chapter_sub_chapter_path(chapter,subc) %> </li>
+        </ul>
+      <% end %>
+    </ul>      
+  <% end %>
+  <p>  <%= button_to 'New Chapter', new_chapter_path, :method => :get %> </p>
+<% end  %>  
+

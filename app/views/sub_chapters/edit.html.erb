@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @sub_chapter %> |
-<%= link_to 'Back', sub_chapters_path %>
+<%= link_to 'Show', [@chapter, @sub_chapter] %> |
+<%= link_to 'Back', chapter_sub_chapters_path(@chapter) %>

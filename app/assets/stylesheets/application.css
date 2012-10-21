@@ -46,7 +46,7 @@ div{
   float: left;
   display: block;
 
-  width: 40%;
+  width: 30%;
 
   background: -moz-linear-gradient(center top ,white, #99fcfd) repeat scroll 0 0 transparent;
 }
@@ -62,7 +62,7 @@ div{
 .content {
   min-height: 400px;
   float: left;
-  width: 60%;
+  width: 70%;
   
 }
 .content-wrapper {
@@ -127,7 +127,7 @@ div.field, div.actions {
   list-style: square;
 }
 
-.steps li{
+.chapters li{
     padding: 3px;
 }
 li.selected{

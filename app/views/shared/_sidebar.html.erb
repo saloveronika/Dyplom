@@ -1,0 +1,11 @@
+<%= content_for :sidebar do %>
+  <% @chapters.each do |chapter| %>
+<ul> 
+  <li class="chapters"> <%= chapter.name %> </li>
+
+    <% chapter.sub_chapters.each do |subc| %>
+      <li> <%= link_to subc.name, chapter_sub_chapter_path(chapter,subc) %> </li>
+    <% end %>
+ </ul>      
+  <% end %>
+<% end  %>  

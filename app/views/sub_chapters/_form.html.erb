@@ -1,4 +1,4 @@
-<%= form_for(@sub_chapter) do |f| %>
+ <%= form_for [@chapter, @sub_chapter] do |f| %>
   <% if @sub_chapter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sub_chapter.errors.count, "error") %> prohibited this sub_chapter from being saved:</h2>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :chapter_id %><br />
-    <%= f.number_field :chapter_id %>
+    <%= f.select :chapter_id, @chapters.map {|c| [c.name, c.id]}, :prompt=>"--Належить до розділу--" %>
   </div>
   <div class="actions">
     <%= f.submit %>
